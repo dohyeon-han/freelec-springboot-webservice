@@ -1,5 +1,6 @@
 package com.freelecspringboot.book.springboot.domain.posts;
 
+import com.freelecspringboot.book.springboot.domain.BaseTimeEntity;
 import lombok.*;
 
 import javax.persistence.*;
@@ -8,7 +9,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity // 테이블과 연결될 클래스
-public class Posts {
+public class Posts extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
