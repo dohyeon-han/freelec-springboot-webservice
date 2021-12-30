@@ -16,7 +16,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.RestClientException;
 
 import java.util.List;
 
@@ -72,5 +72,19 @@ class PostsApiControllerTest {
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isGreaterThan(0L);
         System.out.println(responseEntity);
+    }
+
+    @Test
+    public void Post_삭제(){
+        Posts post = postsRepository.save(Posts.builder()
+                .title("spring")
+                .content("content")
+                .author("author").build());
+        Posts savedPost = postsRepository.save(post);
+        String url = "http://localhost:" + port + "/api/v1/posts/"+savedPost.getId();
+
+        restTemplate.exchange(url,HttpMethod.DELETE,null,Long.class);
+
+        assertThrows(RestClientException.class,()->restTemplate.exchange(url,HttpMethod.DELETE,null,Long.class));
     }
 }
