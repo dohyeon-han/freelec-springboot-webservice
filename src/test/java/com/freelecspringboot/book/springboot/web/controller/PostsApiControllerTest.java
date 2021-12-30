@@ -1,4 +1,4 @@
-package com.freelecspringboot.book.springboot.web;
+package com.freelecspringboot.book.springboot.web.controller;
 
 import com.freelecspringboot.book.springboot.domain.posts.Posts;
 import com.freelecspringboot.book.springboot.domain.posts.PostsRepository;
