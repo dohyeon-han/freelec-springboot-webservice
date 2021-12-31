@@ -2,7 +2,7 @@ var main = {
     init : function () {
         var _this = this;
         $('#btn-save').on('click', function () {
-            if(confirm("저장하시겠습니까?"))
+            if(confirm("등록하시겠습니까?"))
                 _this.save();
         });
 
@@ -12,7 +12,7 @@ var main = {
         });
 
         $('#btn-delete').on('click', function () {
-            if(confirm("저장하시겠습니까?"))
+            if(confirm("삭제하시겠습니까?"))
                 _this.delete();
         });
     },
