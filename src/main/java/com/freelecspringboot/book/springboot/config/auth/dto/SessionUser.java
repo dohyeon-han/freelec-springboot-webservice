@@ -1,7 +1,6 @@
 package com.freelecspringboot.book.springboot.config.auth.dto;
 
 import com.freelecspringboot.book.springboot.domain.user.User;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.io.Serializable;

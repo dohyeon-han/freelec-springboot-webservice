@@ -1,6 +1,5 @@
 package com.freelecspringboot.book.springboot.web.dto;
 
-import com.freelecspringboot.book.springboot.domain.posts.Posts;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
