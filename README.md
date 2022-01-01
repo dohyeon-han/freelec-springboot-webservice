@@ -77,3 +77,38 @@ RetentionPolicy.RUNTIME // 컴파일 후에도 계속 참조 가능
 RetentionPolicy.CLASS // 컴파일러가 클래스를 참조할 때까지 유효
 RetentionPolicy.SOURCE // 컴파일 전까지만 유효, lombok의 getter, setter가 해당
 ```
+
+## OAuth2.0
+- OAuth이란 각종 웹, 모바일 어플리케이션에서 타사의 API를 사용하고 싶을 때 권한 획득을 위한 프로토콜(Protocol)이다.
+- 로그인을 구현하는 과정은 복잡하다. 로그인 보안, 이메일·전화번호 인증, 아이디 찾기, 비밀번호 찾기·변경 등을 구현해야 한다.
+- OAuth2.0을 사용하면 위의 것들을 구글, 페이스북, 네이버 등에 위임할 수 있다.
+### OAuth 참여자
+- Resource Server 
+    - Google, twitter 등이 속하는 영역으로 사용하고자 하는 자원을 제어하는 곳이다..
+- Resource Owner
+    - 자원을 가지고 있는 곳으로 로그인하는 유저가 이곳에 속한다.
+- Client
+    - Resource Server에서 제공하는 자원을 이용하는 어플리케이션이다.
+### 등록
+- 클라이언트가 리소스 서버를 이용하기 위해선 클라이언트 별로 등록이 필요하다.
+- 등록을 통해 클라이언트 ID, 클라이언트 secret이 생성되고 authorized redirect URL를 지정할 수 있다.
+- 클라이언트 ID, 클라이언트 secret을 통해 클라이언트를 구분하고 인증 정보를 authorized redirect URL로 보낸다.
+### 승인
+- 리소스 오너가 클라이언트에 접근하면 클라이언트는 리소스 오너의 자원이 필요하므로 리소스 서버를 통해 인증을 한다.(클라이언트에서 구글 로그인 창을 띄워 인증)
+- 리소스 서버에서 인증에 성공하면 클라이언트의 클라이언트 ID와 redirect URL이 리소스 서버의 것과 같은지 확인한다.
+- 같다면 리소스 서버의 기능을 클라이언트에 사용할 지 리소스 오너에 요청한다.
+- 요청을 허락한다면 authorization code라는 임시 비밀번호를 생성한다.
+- 리소스 오너는 이 코드를 가지고 클라이언트로 이동한다.
+- 클라이언트는 클라이언트 ID, secret, authorization code 등이 모두 일치하는 정보가 있는지 확인한다.
+### Access Token
+- 일치하면 이제 authorization code는 지워지고 리소스 서버는 access token을 발급한다.
+- 리소스 서버는 access token을 보고 어떤 기능을 제공해야 하는지 판단한다.
+### API
+- api를 이용해 리소스 서버의 기능을 이용할 수 있다.
+### Refresh Token
+- Access token은 유효 기간이 있다. Access token이 만료되면 리소스 서버(uthorization server)에 refresh token을 이용해 요청을 하면 새 access token을 받을 수 있다.
+- Refresh token은 보통 처음 access token을 받을 때 같이 생성된다.
+
+    
+    
+    
