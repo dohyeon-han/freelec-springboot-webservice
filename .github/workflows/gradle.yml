@@ -51,7 +51,7 @@ jobs:
         run: cp ./build/libs/*.jar ./deploy/
 
       - name: Make zip file
-        run: zip -r -qq -j ./$PROJ_NAME.zip ./deploy
+        run: zip -r -qq -j ./$S3_BUCKET_NAME.zip ./deploy
         shell: bash
 
       - name: Deliver to AWS S3
