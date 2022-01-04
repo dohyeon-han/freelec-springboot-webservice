@@ -51,7 +51,7 @@ jobs:
         run: cp ./build/libs/*.jar ./deploy/
 
       - name: Make zip file
-        run: zip -r -qq -j ./$PROJ_NAME.zip ./deploy
+        run: zip -r -qq -j ./$S3_BUCKET_NAME.zip ./deploy
         shell: bash
 
       - name: Deliver to AWS S3
@@ -62,7 +62,7 @@ jobs:
           aws s3 cp \
           --region ap-northeast-2 \
           --acl private \
-          ./$PROJ_NAME.zip s3://$PROJ_NAME/
+          ./$S3_BUCKET_NAME.zip s3://$S3_BUCKET_NAME/
 
         # Deploy
       - name: Deploy
@@ -74,5 +74,5 @@ jobs:
           --application-name $PROJ_NAME \
           --deployment-group-name freelec-springboot-webservice-group \
           --file-exists-behavior OVERWRITE \
-          --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=$PROJ_NAME.zip \
+          --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=$S3_BUCKET_NAME.zip \
           --region ap-northeast-2
