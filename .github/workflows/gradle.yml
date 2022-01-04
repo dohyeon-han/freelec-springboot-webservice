@@ -29,16 +29,25 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
 
+      # Caching dependencies
+    - name: Cache Maven packages
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
     - name: Build with Gradle
       run: ./gradlew clean build
 
+    - name: Make deploy dir
+      run: mkdir deploy
+
     - name: Copy Jar
-      run: |
-        mkdir deploy |
-        cp ./build/libs/*.jar ./deploy/
+      run: cp ./build/libs/*.jar ./deploy/
 
     - name: Make zip file
       run: zip -r -qq -j ./$S3_BUCKET_NAME.zip ./deploy
