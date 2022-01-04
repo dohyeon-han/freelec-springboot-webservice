@@ -16,6 +16,8 @@ cache:
 # master branch에 푸시 됐을 때 수행
 script: "./gradlew clean build"
 
+# 이메일
 notifications:
   email:
     recipients:
+
