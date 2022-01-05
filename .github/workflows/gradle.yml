@@ -64,6 +64,9 @@ jobs:
           --acl private \
           ./$PROJ_NAME.zip s3://$S3_BUCKET_NAME/
 
+      - name: Copy appspec.yml
+        run: cp appspec.yml ./deploy
+
         # Deploy
       - name: Deploy
         env:
