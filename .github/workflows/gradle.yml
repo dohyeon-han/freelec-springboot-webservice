@@ -51,7 +51,10 @@ jobs:
         run: cp ./build/libs/*.jar ./deploy/
 
       - name: Copy appspec.yml
-        run: cp appspec.yml ./deploy
+        run: cp appspec.yml ./deploy/
+
+      - name: Copy scripts
+        run: cp scripts/* ./deploy/
 
       - name: Make zip file
         run: zip -r -qq -j ./$PROJ_NAME.zip ./deploy
