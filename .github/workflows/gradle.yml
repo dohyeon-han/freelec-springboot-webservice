@@ -50,6 +50,9 @@ jobs:
       - name: Copy Jar
         run: cp ./build/libs/*.jar ./deploy/
 
+      - name: Copy appspec.yml
+        run: cp appspec.yml ./deploy
+
       - name: Make zip file
         run: zip -r -qq -j ./$PROJ_NAME.zip ./deploy
         shell: bash
@@ -63,9 +66,6 @@ jobs:
           --region ap-northeast-2 \
           --acl private \
           ./$PROJ_NAME.zip s3://$S3_BUCKET_NAME/
-
-      - name: Copy appspec.yml
-        run: cp appspec.yml ./deploy
 
         # Deploy
       - name: Deploy
