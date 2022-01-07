@@ -159,6 +159,7 @@ RetentionPolicy.SOURCE // 컴파일 전까지만 유효, lombok의 getter, sette
 
 - AWS와 CI툴로 travis-ci를 이용하면 다음과 같은 구조로 CI/CD의 자동화가 이뤄진다. 
 ![image](https://user-images.githubusercontent.com/63232876/148560963-d8f57452-5bec-41c4-9c39-a0d2c3ab248a.png)
+
 (출처: https://stalker5217.github.io/devops/github_action_ci_cd_2/)
 
 
