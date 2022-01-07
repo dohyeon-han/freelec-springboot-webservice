@@ -5,6 +5,8 @@ ABSDIR=$(dirname "$ABSPATH")
 source "$ABSDIR"/profile.sh
 source "$ABSDIR"/switch.sh
 
+IDLE_PORT=$(find_idle_port)
+
 echo "> Health check start"
 echo "> IDLE_PORT: $IDLE_PORT"
 echo "> curl -s http://localhost:$IDLE_PORT/profile"
