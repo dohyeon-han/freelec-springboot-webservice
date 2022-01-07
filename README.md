@@ -1,5 +1,24 @@
-# 스프링부트2로 웹서비스 출시하기
+# 스프링부트로 웹서비스 출시하기
 https://github.com/jojoldu/freelec-springboot2-webservice
+
+## 기술 스택
+- Java 11
+- Springboot 2.6.2
+- MaridDB
+- JPA
+- Thymeleaf
+- OAuth2.0
+- AWS
+
+## 구현 사항
+- JPA로 구현한 CRUD
+- Spring Security와 OAuth2.0을 이용한 소셜 로그인
+- AWS를 이용한 CI/CD 및 무중단 배포
+
+## 책과의 차이점
+- Java 8에서 Java 11로 버전업
+- Mustache 대신 Thymeleaf 사용
+- Travis-ci의 유료화로 Github Action 사용
 
 ## Builder Pattern
 - 객체 생성 시 사용하는 패턴
@@ -109,6 +128,38 @@ RetentionPolicy.SOURCE // 컴파일 전까지만 유효, lombok의 getter, sette
 - Access token은 유효 기간이 있다. Access token이 만료되면 리소스 서버(uthorization server)에 refresh token을 이용해 요청을 하면 새 access token을 받을 수 있다.
 - Refresh token은 보통 처음 access token을 받을 때 같이 생성된다.
 
-    
-    
+## AWS
+- 서버를 24시간 작동시키기 위한 3가지 선택지가 존재한다.
+    - PC를 24시간 구동
+    - 호스팅 서비스 이용
+    - 클라우드 서비스 이용
+- PC나 호스팅 서비스가 더 저렴하나 사용자가 특정 시간에 몰릴 수 있다면 사양을 유동적을 조절할 수 있는 클라우드가 유리하다.
+- AWS를 사용하는 이유는 1년간 서비스가 무료이고 모니터링, 로그관리 등 지원 기능이 많으며, 많은 기업들이 AWS를 사용하기 때문이다.
+### EC2
+- AWS에서 성능, 용량 등을 유동적으로 사용할 수 있도록 제공하는 서버이다.
+- EC2란 24시간 구동 가능한 컴퓨터 한 대를 사용할 수 있게 된다.
+### RDS
+- AWS에서 지원하는 클라우드 기반 관계형 데이터베이스이다.
+- EC2에 직접 DB를 설치할 수도 있다. 이 경우 돈을 절약할 수 있지만 DB의 설정, 운영, 백업 등의 기능을 직접 구현해야하는 불편함이 존재한다.
+### S3
+- 파일 저장소의 역할을 하는 서비스이다. 일반적인 파일서버는 트래픽이 증가함에 따라서 장비를 증설하는 작업을 해야 하는데 S3는 이와 같은 것을 대행한다.
+### CodeDeploy
+- CD를 제공하는 AWS 서비스이다.
+- CodeDeploy는 저장 기능이 없으므로 S3에 저장한 빌드한 결과물을 가져와 배포를 한다.
+
+## CI/CD
+- Continuous Integration/Continuous Deploy의 약자이다.
+### CI
+- 각자가 작업한 결과물을 한 번에 합치는 것은 시간도 많이 걸리고 한꺼번에 오류가 발생하기 쉽다.
+- 뼈대에 살점을 하나씩 붙이듯 새로운 코드를 지속적으로 통합하고 테스트하여 완성해 나가는 방식의 개발 방법론이다.
+### CD
+- 서비스의 사용자는 최대한 빠른 시간 내에 최신 버전을 제공받을 필요가 있다.
+- 소프트웨어가 항상 신뢰 가능한 수준에서 배포될 수 있도록 지속적으로 관리하자는 개념으로 CI의 연장선에 있다고 할 수 있다.
+
+
+- AWS와 CI툴로 travis-ci를 이용하면 다음과 같은 구조로 CI/CD의 자동화가 이뤄진다. 
+![image](https://user-images.githubusercontent.com/63232876/148560963-d8f57452-5bec-41c4-9c39-a0d2c3ab248a.png)
+(출처: https://stalker5217.github.io/devops/github_action_ci_cd_2/)
+
+
     
