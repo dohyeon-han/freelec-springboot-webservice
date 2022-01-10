@@ -4,7 +4,7 @@ https://github.com/jojoldu/freelec-springboot2-webservice
 ## 기술 스택
 - Java 11
 - Springboot 2.6.2
-- MaridDB
+- MariaDB
 - JPA
 - Thymeleaf
 - OAuth2.0
@@ -155,6 +155,7 @@ RetentionPolicy.SOURCE // 컴파일 전까지만 유효, lombok의 getter, sette
 ### CD
 - 서비스의 사용자는 최대한 빠른 시간 내에 최신 버전을 제공받을 필요가 있다.
 - 소프트웨어가 항상 신뢰 가능한 수준에서 배포될 수 있도록 지속적으로 관리하자는 개념으로 CI의 연장선에 있다고 할 수 있다.
+
 
 
 - AWS와 CI툴로 travis-ci를 이용하면 다음과 같은 구조로 CI/CD의 자동화가 이뤄진다. 
