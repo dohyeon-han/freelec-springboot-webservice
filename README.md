@@ -18,7 +18,7 @@ https://github.com/jojoldu/freelec-springboot2-webservice
 ## 책과의 차이점
 - Java 8에서 Java 11로 버전업
 - Mustache 대신 Thymeleaf 사용
-- Travis-ci의 유료화로 Github Action 사용
+- Travis-ci 대신 github과의 연동성이 좋은 Github Action 사용
 
 ## Builder Pattern
 - 객체 생성 시 사용하는 패턴
