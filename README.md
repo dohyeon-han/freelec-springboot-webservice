@@ -15,8 +15,11 @@ https://github.com/jojoldu/freelec-springboot2-webservice
 - Spring Security와 OAuth2.0을 이용한 소셜 로그인
 - AWS를 이용한 CI/CD 및 무중단 배포
 
+## 프로젝트 구조
+![flowchart](https://user-images.githubusercontent.com/63232876/165902388-4617faf0-eae6-47ec-ad3e-d273731c0597.png)
+
 ## 책과의 차이점
-- Java 8에서 Java 11로 버전업
+- JUnit4 대신 JUnit5 사용
 - Mustache 대신 Thymeleaf 사용
 - Travis-ci 대신 github과의 연동성이 좋은 Github Action 사용
 
